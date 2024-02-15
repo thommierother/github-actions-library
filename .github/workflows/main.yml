@@ -23,7 +23,7 @@ jobs:
         run: |
           flake8 --max-line-length=120
 
-unit:
+  unit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
