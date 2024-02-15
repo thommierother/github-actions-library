@@ -48,9 +48,13 @@ jobs:
           poetry run pytest --cov tests/
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     needs:
       - build
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+        os: [ "ubuntu-latest", "macos-latest" ]
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
